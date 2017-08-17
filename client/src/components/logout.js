@@ -1,9 +1,10 @@
 import React from "react";
+import RaisedButton from "material-ui/RaisedButton";
 
 const logout = () => {
   return (
     <div>
-      <a href="/api/logout">Logout</a>
+      <RaisedButton href="/api/logout" label="Logout" />
     </div>
   );
 };

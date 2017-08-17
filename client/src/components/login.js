@@ -1,9 +1,9 @@
 import React from "react";
-
+import RaisedButton from "material-ui/RaisedButton";
 const login = () => {
   return (
     <div>
-      <a href="/auth/google">Sign In with Google</a>
+      <RaisedButton href="/auth/google" label="Login" />
     </div>
   );
 };
