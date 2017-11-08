@@ -20,7 +20,6 @@
     "react-scripts": "1.0.11",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
-    "redux-form": "^7.0.3",
     "redux-promise": "^0.5.3"
   },
   "scripts": {
