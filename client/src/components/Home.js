@@ -5,6 +5,9 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <a href="/api/logout" className="btn waves-effect waves-light">
+          Logout
+        </a>
         <h1>Hello {this.props.auth ? this.props.auth.fname : ""}!</h1>
       </div>
     );
