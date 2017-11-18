@@ -1,6 +1,19 @@
-const passport = require("passport");
+module.exports = (app, passport) => {
+  app.post(
+    "/auth/signup",
+    passport.authenticate("local-signup", {
+      successRedirect: "/",
+      failureFlash: true
+    })
+  );
+  app.post(
+    "/auth/login",
+    passport.authenticate("local-login", {
+      successRedirect: "/",
+      failureFlash: true
+    })
+  );
 
-module.exports = app => {
   app.get(
     "/auth/google",
     passport.authenticate("google", {

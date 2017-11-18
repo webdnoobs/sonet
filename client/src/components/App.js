@@ -1,30 +1,31 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchUser } from "../actions";
-import Login from "./login";
-import Logout from "./logout";
+import Auth from "./Auth";
+import Home from "./Home";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  renderAuth() {
-    switch (this.props.auth) {
-      case null:
-        return;
-      case false:
-        return Login;
-      default:
-        return Logout;
-    }
-  }
+
   render() {
     return (
-      <div>
+      <div className="container">
         <BrowserRouter>
           <div>
-            <Route path="/" component={this.renderAuth()} />
+            <Switch>
+              <Route path="/login" component={Auth} />
+              <Route
+                path="/"
+                component={
+                  this.props.auth !== false
+                    ? Home
+                    : () => <Redirect to="/login" />
+                }
+              />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
