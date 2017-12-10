@@ -13,9 +13,7 @@ class UserList extends Component {
     }
     return (
         <div className="row" style={style}>
-            <ul>
-            {users.map(user=> <li key={user._id}><UserCard user={user}/></li>)}
-            </ul>
+            {users.map(user=> <div key={user._id} className="col s4"><UserCard user={user}/></div>)}
         </div>
     );
   }
