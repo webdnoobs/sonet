@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav>
-        <div class="nav-wrapper">
+        <div className="nav-wrapper">
           <a href="/" className="brand-logo">
             Dosti
           </a>
