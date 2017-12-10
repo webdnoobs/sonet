@@ -6,9 +6,9 @@ class Navbar extends Component {
     return (
       <div className="navbar-fixed">
         <nav>
-          <div className="nav-wrapper">
-            <a href="/" className="brand-logo">
-              Dosti
+          <div className="nav-wrapper deep-purple darken-4">
+            <a href="/" className="brand-logo center">
+              dosti
             </a>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>

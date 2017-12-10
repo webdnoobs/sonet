@@ -15,14 +15,15 @@ class Home extends Component {
     const user = this.props.auth || {};
     return (
       <div>
+        <style>{'body { background-image: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-1989152_960_720.jpg"); }'}</style>
         <Navbar />
         <div className="container">
           <div className="row">
             <div className="col s3">
               <ul
                 id="snav"
-                className="side-nav fixed"
-                style={{ marginTop: 65 }}
+                className="side-nav fixed indigo accent-1"
+                style={{ marginTop: 65}}
               >
                 <div className="user-view">
                   <div className="background">

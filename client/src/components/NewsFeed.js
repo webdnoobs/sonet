@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class NewsFeed extends Component {
+  
   render() {
     const user = this.props.user || {}
     return (
         <div className="row">
             <div className="col">
-                <div className="card teal">
+                <div className="card blue lighten-3">
                     <div className="card-content white-text">
                     <span className="card-title">Card Title</span>
                         <p>idhar udhar ki baaten wagarah wagarah!! idhar udhar ki baaten wagarah wagarah!! </p>

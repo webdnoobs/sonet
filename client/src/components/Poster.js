@@ -5,17 +5,31 @@ class Poster extends Component {
   render() {
     const user = this.props.user || {}
     return (
-      <div className="fixed-action-btn horizontal">
-        <a className="btn-floating btn-large red" href="#modal1"></a>
-        <div id="modal1" class="modal">
-        <div className="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+      <div className="row">
+        <div className="col s12">
+          <div className="card blue lighten-3">
+              <div className="card-content white-text">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="row">
+                    <div className="input-field col">
+                      <textarea className="col s12"
+                        type="text"
+                        name="what's on your mind??"
+                      />
+                      <label htmlFor="what's on your mind??">Post Something</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col s12">
+                      <button type="submit" className="btn waves-effect waves-light">
+                        Post
+                      </button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+          </div>
         </div>
-        <div className="modal-footer">
-          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-      </div>
       </div>
     );
   }
