@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema({
   lname: String,
   password: String,
   provider: String,
-  token: String
+  token: String,
+  profile_pic: String,
+  friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
 });
 
 userSchema.methods.generateHash = function(password) {

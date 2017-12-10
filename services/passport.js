@@ -34,6 +34,7 @@ module.exports = passport => {
           fname: profile.name.givenName,
           lname: profile.name.familyName,
           email: profile.emails[0].value,
+          profile_pic: profile.photos[0].value,
           provider: "google"
         }).save();
         done(null, user);
@@ -56,6 +57,7 @@ module.exports = passport => {
             if (user)
               return done(null, false, { message: "Email already in use." });
             else {
+              console.log(req.body);
               var newUser = new User({
                 fname: req.body.fname,
                 lname: req.body.lname,
