@@ -4,20 +4,22 @@ import { connect } from "react-redux";
 class Navbar extends Component {
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <a href="/" className="brand-logo">
-            Dosti
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="/api/logout" className="waves-effect">
-                Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div className="navbar-fixed">
+        <nav>
+          <div className="nav-wrapper">
+            <a href="/" className="brand-logo">
+              Dosti
+            </a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li>
+                <a href="/api/logout" className="waves-effect">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
