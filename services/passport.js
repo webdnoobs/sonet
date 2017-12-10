@@ -57,7 +57,6 @@ module.exports = passport => {
             if (user)
               return done(null, false, { message: "Email already in use." });
             else {
-              console.log(req.body);
               var newUser = new User({
                 fname: req.body.fname,
                 lname: req.body.lname,

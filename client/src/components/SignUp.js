@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import { signup_post } from "../actions";
+import axios from "axios";
+
+const signup_post = function(data) {
+  axios
+    .post("/auth/signup", data)
+    .then(res => {
+      window.location.assign("/");
+    })
+    .catch(err => {
+      if (err.response.status === 401) {
+        window.location.assign("/");
+      }
+    });
+};
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,6 +31,7 @@ class SignUp extends Component {
       [e.target.name]: e.target.value
     });
   }
+
   handleSubmit(e) {
     e.preventDefault();
     signup_post(this.state);

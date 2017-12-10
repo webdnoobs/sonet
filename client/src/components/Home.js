@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { BrowserRouter, Route, Switch, Redirect, Link } from "react-router-dom";
 import Navbar from "./Navbar";
-import UserList from "./UserList";
-import {fetchUserList} from "./../actions";
 import Poster from "./Poster";
 import NewsFeed from "./NewsFeed";
+import PostList from "./PostsList";
+import FriendList from "./FriendList";
+import AllUserList from "./AllUserList";
+import Settings from "./Settings";
+import About from "./About";
 
 class Home extends Component {
-  componentDidMount() {
-    this.props.fetchUserList();
-  }
   render() {
-    const user = this.props.auth || "";
-    const users=this.props.users;
+    const user = this.props.auth || {};
     return (
       <div>
         <Navbar />
@@ -26,11 +26,17 @@ class Home extends Component {
               >
                 <div className="user-view">
                   <div className="background">
-                    <img src="https://media.istockphoto.com/photos/abstract-network-connection-background-picture-id509731276?k=6&m=509731276&s=612x612&w=0&h=C8_3Gb8V7DHKZnO1BP-BHYKYfTvxxqJAM29OtvaC7Qs=" alt="Background"/>
+                    <img
+                      src="https://media.istockphoto.com/photos/abstract-network-connection-background-picture-id509731276?k=6&m=509731276&s=612x612&w=0&h=C8_3Gb8V7DHKZnO1BP-BHYKYfTvxxqJAM29OtvaC7Qs="
+                      alt="Background"
+                    />
                   </div>
                   <img
                     className="circle"
-                    src={user.profile_pic || "https://at-cdn-s01.audiotool.com/2013/01/10/users/kmnoonan/avatar256x256-a2ed91cddc8e4316ae8bc8341cf948ee.jpg"}
+                    src={
+                      user.profile_pic ||
+                      "https://at-cdn-s01.audiotool.com/2013/01/10/users/kmnoonan/avatar256x256-a2ed91cddc8e4316ae8bc8341cf948ee.jpg"
+                    }
                     alt="Profile Pic"
                   />
                   <p className="white-text name">
@@ -39,29 +45,31 @@ class Home extends Component {
                   <p className="white-text email">{user.email}</p>
                 </div>
                 <li>
-                  <a href="#!">Profile</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="#!">Friends</a>
+                  <Link to="/friends">Friends</Link>
                 </li>
                 <li>
-                  <a href="#!">People</a>
+                  <Link to="/people">People</Link>
                 </li>
                 <li>
                   <div className="divider" />
                 </li>
                 <li>
-                  <a href="#!">Settings</a>
+                  <Link to="/settings">Settings</Link>
                 </li>
                 <li>
-                  <a href="#!">About</a>
+                  <Link to="/about">About</Link>
                 </li>
               </ul>
             </div>
             <div className="col s9">
-              <UserList users={users}/>
-              {/* <Poster/> */}
-              <div> <NewsFeed/> </div>
+              <Route path="/" exact={true} component={PostList} />
+              <Route path="/friends" exact={true} component={FriendList} />
+              <Route path="/people" exact={true} component={AllUserList} />
+              <Route path="/settings" exact={true} component={Settings} />
+              <Route path="/about" exact={true} component={About} />
             </div>
           </div>
         </div>
@@ -69,8 +77,8 @@ class Home extends Component {
     );
   }
 }
-function mapStateToProps({ auth, users }) {
-  return { auth, users };
+function mapStateToProps({ auth }) {
+  return { auth };
 }
 
-export default connect(mapStateToProps, {fetchUserList})(Home);
+export default connect(mapStateToProps)(Home);

@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import { login_post } from "../actions";
+import axios from "axios";
+
+const login_post = function(data) {
+  axios
+    .post("/auth/login", data)
+    .then(res => {
+      window.location.assign("/");
+    })
+    .catch(err => {
+      if (err.response.status === 401) {
+        window.location.assign("/");
+      }
+    });
+};
 
 class Login extends Component {
   constructor(props) {
@@ -11,11 +24,13 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
+
   handleSubmit(e) {
     e.preventDefault();
     login_post(this.state);
