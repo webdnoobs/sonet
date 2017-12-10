@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Navbar from "./Navbar";
 import UserList from "./UserList";
 import {fetchUserList} from "./../actions";
+import Poster from "./Poster";
+import NewsFeed from "./NewsFeed";
 
 class Home extends Component {
   componentDidMount() {
@@ -58,6 +60,8 @@ class Home extends Component {
             </div>
             <div className="col s9">
               <UserList users={users}/>
+              {/* <Poster/> */}
+              <div> <NewsFeed/> </div>
             </div>
           </div>
         </div>
